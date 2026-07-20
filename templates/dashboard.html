@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container">
+
+    <h1>🎉 Dashboard</h1>
+
+    <h2>Welcome {{ session['user'] }}</h2>
+
+    <div class="buttons">
+
+        <a href="/create_quiz" class="btn">
+            ➕ Create Quiz
+        </a>
+
+        <a href="/quiz_list" class="btn">
+            📋 My Quizzes
+        </a>
+
+        <a href="/take_quiz" class="btn">
+            📝 Take Quiz
+        </a>
+
+        <a href="/logout" class="btn">
+            🚪 Logout
+        </a>
+
+    </div>
+
+</div>
+{% endblock %}

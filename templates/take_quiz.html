@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container">
+
+    <h1>📝 Available Quizzes</h1>
+
+    <br>
+
+    {% if quizzes %}
+
+        {% for quiz in quizzes %}
+
+        <div class="card" style="margin-bottom:20px;padding:20px;border:1px solid #ddd;border-radius:10px;">
+
+            <h2>{{ quiz["title"] }}</h2>
+
+            <p>{{ quiz["description"] }}</p>
+
+            <a href="/start_quiz/{{ quiz['id'] }}" class="btn">
+                ▶ Start Quiz
+            </a>
+
+        </div>
+
+        {% endfor %}
+
+    {% else %}
+
+        <h3>No Quiz Available</h3>
+
+    {% endif %}
+
+    <br>
+
+    <a href="/dashboard" class="btn">
+        🏠 Dashboard
+    </a>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,84 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container">
+
+<h1>{{ quiz["title"] }}</h1>
+
+<p>{{ quiz["description"] }}</p>
+
+<form action="/submit_quiz/{{ quiz['id'] }}" method="POST">
+
+{% for question in questions %}
+
+<div class="question-box" style="margin-bottom:25px;">
+
+<h3>
+Q{{ loop.index }}. {{ question["question"] }}
+</h3>
+
+<label>
+
+<input type="radio"
+name="q{{ question['id'] }}"
+value="A"
+required>
+
+{{ question["option_a"] }}
+
+</label>
+
+<br><br>
+
+<label>
+
+<input type="radio"
+name="q{{ question['id'] }}"
+value="B">
+
+{{ question["option_b"] }}
+
+</label>
+
+<br><br>
+
+<label>
+
+<input type="radio"
+name="q{{ question['id'] }}"
+value="C">
+
+{{ question["option_c"] }}
+
+</label>
+
+<br><br>
+
+<label>
+
+<input type="radio"
+name="q{{ question['id'] }}"
+value="D">
+
+{{ question["option_d"] }}
+
+</label>
+
+<hr>
+
+</div>
+
+{% endfor %}
+
+<button type="submit" class="btn">
+
+✅ Submit Quiz
+
+</button>
+
+</form>
+
+</div>
+
+{% endblock %}

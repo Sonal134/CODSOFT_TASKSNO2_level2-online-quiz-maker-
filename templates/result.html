@@ -1,0 +1,85 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container">
+
+    <h1>🎉 Quiz Result</h1>
+
+    <br>
+
+    <h2>Your Score</h2>
+
+    <h1>{{ score }} / {{ total }}</h1>
+
+    <h2>{{ percentage }}%</h2>
+
+    <br>
+
+    <h2>{{ performance }}</h2>
+
+    <br>
+
+    <h3 style="color:green;">
+        ✅ Correct Answers : {{ score }}
+    </h3>
+
+    <h3 style="color:red;">
+        ❌ Wrong Answers : {{ total - score }}
+    </h3>
+
+    <hr>
+
+    <h2>📋 Answer Review</h2>
+
+    {% for item in review %}
+
+    <div style="border:1px solid #ddd;
+                padding:15px;
+                margin:15px 0;
+                border-radius:10px;">
+
+        <h3>Q{{ loop.index }}. {{ item.question }}</h3>
+
+        <p>
+            <strong>Your Answer :</strong>
+
+            {% if item.your_answer %}
+                {{ item.your_answer }}
+            {% else %}
+                Not Answered
+            {% endif %}
+        </p>
+
+        <p>
+            <strong>Correct Answer :</strong>
+            {{ item.correct_answer }}
+        </p>
+
+        {% if item.is_correct %}
+
+            <h3 style="color:green;">
+                ✅ Correct
+            </h3>
+
+        {% else %}
+
+            <h3 style="color:red;">
+                ❌ Wrong
+            </h3>
+
+        {% endif %}
+
+    </div>
+
+    {% endfor %}
+
+    <br>
+
+    <a href="/dashboard" class="btn">
+        🏠 Dashboard
+    </a>
+
+</div>
+
+{% endblock %}

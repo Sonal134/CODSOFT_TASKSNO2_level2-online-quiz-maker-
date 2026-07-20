@@ -1,0 +1,88 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container">
+
+    <h1>➕ Add Question</h1>
+
+    <form method="POST">
+
+        <label>Question</label><br>
+        <input
+            type="text"
+            name="question"
+            placeholder="Enter Question"
+            required>
+
+        <br><br>
+
+        <label>Option A</label><br>
+        <input
+            type="text"
+            name="option_a"
+            placeholder="Option A"
+            required>
+
+        <br><br>
+
+        <label>Option B</label><br>
+        <input
+            type="text"
+            name="option_b"
+            placeholder="Option B"
+            required>
+
+        <br><br>
+
+        <label>Option C</label><br>
+        <input
+            type="text"
+            name="option_c"
+            placeholder="Option C"
+            required>
+
+        <br><br>
+
+        <label>Option D</label><br>
+        <input
+            type="text"
+            name="option_d"
+            placeholder="Option D"
+            required>
+
+        <br><br>
+
+        <label>Correct Answer</label><br>
+
+        <select name="correct_answer" required>
+
+            <option value="">Select</option>
+
+            <option value="A">A</option>
+
+            <option value="B">B</option>
+
+            <option value="C">C</option>
+
+            <option value="D">D</option>
+
+        </select>
+
+        <br><br>
+
+        <button type="submit" class="btn">
+            💾 Save Question
+        </button>
+
+    </form>
+
+    <br>
+
+    <a href="/quiz_list" class="btn">
+        ⬅ Back to Quiz List
+    </a>
+
+</div>
+
+{% endblock %}
