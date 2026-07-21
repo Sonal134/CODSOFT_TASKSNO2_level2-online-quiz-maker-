@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container">
+
+    <h1>📚 My Quizzes</h1>
+
+    <br>
+
+    <a href="/create_quiz" class="btn">
+        ➕ Create New Quiz
+    </a>
+
+    <br><br>
+
+    {% if quizzes %}
+
+        <table border="1" cellpadding="10" cellspacing="0" width="100%">
+
+            <tr>
+                <th>ID</th>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Actions</th>
+            </tr>
+
+            {% for quiz in quizzes %}
+
+            <tr>
+
+                <td>{{ quiz["id"] }}</td>
+
+                <td>{{ quiz["title"] }}</td>
+
+                <td>{{ quiz["description"] }}</td>
+
+                <td>
+
+                    <a href="/add_question/{{ quiz['id'] }}" class="btn">
+                        ➕ Add Question
+                    </a>
+
+                    <a href="/view_questions/{{ quiz['id'] }}" class="btn">
+                        👀 View Questions
+                    </a>
+
+                    <a href="/edit_quiz/{{ quiz['id'] }}" class="btn">
+                        ✏ Edit
+                    </a>
+
+                    <a href="/delete_quiz/{{ quiz['id'] }}"
+                       class="btn"
+                       onclick="return confirm('Delete this quiz?')">
+                        🗑 Delete
+                    </a>
+
+                </td>
+
+            </tr>
+
+            {% endfor %}
+
+        </table>
+
+    {% else %}
+
+        <h3>No quiz created yet.</h3>
+
+    {% endif %}
+
+    <br>
+
+    <a href="/dashboard" class="btn">
+        🏠 Dashboard
+    </a>
+
+</div>
+
+{% endblock %}
